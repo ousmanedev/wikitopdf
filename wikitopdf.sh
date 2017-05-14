@@ -7,27 +7,29 @@ if [ "$1" == "" ]; then
   exit 1
 fi
 
-git clone "https://github.com/$1.wiki.git" "wiki"
+WIKI_FOLDER="wiki"
 
-if [[ $? -ne 0 ]]; then
-  exit 1
-fi
+git clone "https://github.com/$1.wiki.git" $WIKI_FOLDER
 
-cd "wiki"
+cd $WIKI_FOLDER
+
+TEX_FILE="wiki.tex"
 
 for file in *.md
 do
-  echo "\chapter{$file}" >> "wiki.tex"
+  echo "\chapter{$file}" >> $TEX_FILE
 
-  pandoc "$file" -f "markdown_github" -t "latex" >> "wiki.tex"
+  pandoc "$file" -f "markdown_github" -t "latex" >> $TEX_FILE
 done
 
 cd "../"
 
-pandoc "wiki/wiki.tex" -s -o "wiki.pdf" --variable documentclass="report" --toc
+PDF_FILE="wiki.pdf"
 
-rm -rf "wiki"
+pandoc "$WIKI_FOLDER/$TEX_FILE" -s -o $PDF_FILE --variable documentclass="report" --toc
 
-echo "PDF generated at wiki.pdf"
+rm -rf $WIKI_FOLDER
+
+echo "PDF generated at $PDF_FILE"
 
 exit 0
