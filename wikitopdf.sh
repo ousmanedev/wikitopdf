@@ -17,18 +17,19 @@ TEX_FILE="wiki.tex"
 
 for file in *.md
 do
-  echo "\chapter{$file}" >> $TEX_FILE
+  echo "\chapter{$file}" >> "../$TEX_FILE"
 
-  pandoc "$file" -f "markdown_github" -t "latex" >> $TEX_FILE
+  pandoc "$file" -f "markdown_github" -t "latex" >> "../$TEX_FILE"
 done
 
 cd "../"
 
 PDF_FILE="wiki.pdf"
 
-pandoc "$WIKI_FOLDER/$TEX_FILE" -s -o $PDF_FILE --variable documentclass="report" --toc
-
 rm -rf $WIKI_FOLDER
+
+pandoc $TEX_FILE -s -o $PDF_FILE --variable documentclass="report" --toc
+
 
 echo "PDF generated at $PDF_FILE"
 
