@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 if [ "$1" == "" ]; then
   echo "You must provide a Github repo name in the format owner/repo"
   exit 1
