@@ -13,7 +13,7 @@ A bash script that allows you to export a Github repo's wiki as a well-structure
 It's very simple.
 For example, to export the [plataformatec/devise](https://github.com/plataformatec/devise) repository's wiki, you just have to do :
 ```
-./wikitopdf.sh jgm/pandoc
+./wikitopdf.sh plataformatec/devise
 ```
 
 ## Contributions
