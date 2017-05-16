@@ -17,7 +17,7 @@ TEX_FILE="wiki.tex"
 
 for file in *.md
 do
-  echo "\chapter{$file}" >> "../$TEX_FILE"
+  echo "\chapter{${file:0:${#file}-3}}" >> "../$TEX_FILE"
 
   pandoc "$file" -f "markdown_github" -t "latex" >> "../$TEX_FILE"
 done
