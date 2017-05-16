@@ -30,6 +30,8 @@ rm -rf $WIKI_FOLDER
 
 pandoc $TEX_FILE -s -o $PDF_FILE --variable documentclass="report" --toc
 
+rm $TEX_FILE
+
 
 echo "PDF generated at $PDF_FILE"
 
