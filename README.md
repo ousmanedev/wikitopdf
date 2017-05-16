@@ -2,6 +2,7 @@
 A bash script to export a Github repo's wiki as a well-structured PDF book.
 
 ## Requirements
+- [Git](https://git-scm.com/)
 - [Pandoc](http://pandoc.org/)
 - [LaTex](https://www.latex-project.org/)
 
