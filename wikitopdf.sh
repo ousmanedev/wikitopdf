@@ -20,9 +20,9 @@ do
   pandoc "$file" -f "markdown_github" -t "latex" >> $TEX_FILE
 done
 
-PDF_FILE="wiki.pdf"
-
 rm -rf $WIKI_FOLDER
+
+PDF_FILE="wiki.pdf"
 
 pandoc $TEX_FILE -s -o $PDF_FILE --variable documentclass="report" --toc
 
