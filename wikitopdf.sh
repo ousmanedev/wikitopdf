@@ -11,18 +11,14 @@ WIKI_FOLDER="wiki"
 
 git clone "https://github.com/$1.wiki.git" $WIKI_FOLDER
 
-cd $WIKI_FOLDER
-
 TEX_FILE="wiki.tex"
 
-for file in *.md
+for file in "$WIKI_FOLDER"/*.md
 do
-  echo "\chapter{${file:0:${#file}-3}}" >> "../$TEX_FILE"
+  echo "\chapter{${file:${#WIKI_FOLDER}+1:${#file}-${#WIKI_FOLDER}-4}}" >> $TEX_FILE
 
-  pandoc "$file" -f "markdown_github" -t "latex" >> "../$TEX_FILE"
+  pandoc "$file" -f "markdown_github" -t "latex" >> $TEX_FILE
 done
-
-cd "../"
 
 PDF_FILE="wiki.pdf"
 
@@ -31,7 +27,6 @@ rm -rf $WIKI_FOLDER
 pandoc $TEX_FILE -s -o $PDF_FILE --variable documentclass="report" --toc
 
 rm $TEX_FILE
-
 
 echo "PDF file generated at $PDF_FILE"
 
