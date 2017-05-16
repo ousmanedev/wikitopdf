@@ -1,5 +1,5 @@
 # WikiToPdf
-A bash script to export a Github repo's wiki as a well-structured PDF book.
+A bash script to export a Github repo's wiki as a well-structured PDF ebook.
 
 ## Requirements
 - [Git](https://git-scm.com/)
