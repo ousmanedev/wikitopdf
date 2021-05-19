@@ -17,7 +17,7 @@ for file in "$WIKI_FOLDER"/*.md
 do
   echo "\chapter{${file:${#WIKI_FOLDER}+1:${#file}-${#WIKI_FOLDER}-4}}" >> $TEX_FILE
 
-  pandoc "$file" -f "markdown_github" -t "latex" >> $TEX_FILE
+  pandoc "$file" -f "gfm" -t "latex" >> $TEX_FILE
 done
 
 rm -rf $WIKI_FOLDER
