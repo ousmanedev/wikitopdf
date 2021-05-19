@@ -14,10 +14,11 @@ curl https://raw.githubusercontent.com/ousmanedev/wikitopdf/master/wikitopdf.sh 
 
 
 ## Usage
-It's very simple.
-For example, to export the [plataformatec/devise](https://github.com/plataformatec/devise) repository's wiki, you just have to do:
+Run the script file with the repository url as argument.
+
+For example, to export the [https://github.com/arsduo/koala/wiki](https://github.com/arsduo/koala/wiki) repository's wiki, you just have to do:
 ```
-./wikitopdf.sh plataformatec/devise
+./wikitopdf.sh https://github.com/arsduo/koala/wiki
 ```
 
 ## Contributions

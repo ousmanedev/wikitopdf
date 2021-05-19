@@ -3,13 +3,13 @@
 set -e
 
 if [ "$1" == "" ]; then
-  echo "You must provide a Github repo name in the format owner/repo"
+  echo "You must provide the full Github repository url (https://github.com/owner/repo)"
   exit 1
 fi
 
 WIKI_FOLDER="wiki"
 
-git clone "https://github.com/$1.wiki.git" $WIKI_FOLDER
+git clone "$1.wiki.git" $WIKI_FOLDER
 
 TEX_FILE="wiki.tex"
 
