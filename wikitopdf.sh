@@ -3,13 +3,13 @@
 set -e
 
 if [ "$1" == "" ]; then
-  echo "You must provide a Github repo name in the format owner/repo"
+  echo "You must provide the full Github repository url (https://github.com/owner/repo)"
   exit 1
 fi
 
 WIKI_FOLDER="wiki"
 
-git clone "https://github.com/$1.wiki.git" $WIKI_FOLDER
+git clone "$1.wiki.git" $WIKI_FOLDER
 
 TEX_FILE="wiki.tex"
 
@@ -17,7 +17,7 @@ for file in "$WIKI_FOLDER"/*.md
 do
   echo "\chapter{${file:${#WIKI_FOLDER}+1:${#file}-${#WIKI_FOLDER}-4}}" >> $TEX_FILE
 
-  pandoc "$file" -f "markdown_github" -t "latex" >> $TEX_FILE
+  pandoc "$file" -f "gfm" -t "latex" >> $TEX_FILE
 done
 
 rm -rf $WIKI_FOLDER
